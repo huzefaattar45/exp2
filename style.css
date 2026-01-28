@@ -6,76 +6,109 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(120deg, #4e54c8, #8f94fb);
-    padding: 40px;
-}
-
-
-.container {
-    max-width: 900px;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-
-.header {
-    background: #2f2f2f;
+    background: #0f172a;
     color: white;
-    display: flex;
-    justify-content: space-between;
+    min-height: 100vh;
+}
+
+
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(120deg, rgba(78,84,200,0.3), rgba(143,148,251,0.3)),
+        url("https://www.transparenttextures.com/patterns/cubes.png");
+    z-index: -1;
+}
+
+
+.resume {
+    max-width: 1100px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-areas:
+        "top top"
+        "left right"
+        "center center"
+        "bottom bottom";
+    gap: 25px;
+    padding: 20px;
+}
+
+
+.top, .left, .right, .center, .bottom {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
     padding: 25px;
-}
-
-.role {
-    color: #bbb;
-}
-
-.contact p {
-    font-size: 14px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
 
 
-.main {
-    display: flex;
+.top { grid-area: top; text-align: center; }
+.left { grid-area: left; }
+.right { grid-area: right; }
+.center { grid-area: center; text-align: center; }
+.bottom { grid-area: bottom; }
+
+
+.top h1 {
+    font-size: 42px;
+    background: linear-gradient(to right, #8f94fb, #4e54c8);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-/* Left section */
-.left {
-    width: 30%;
-    background: #f5f5f5;
-    padding: 20px;
+.top p {
+    margin-top: 5px;
+    font-size: 18px;
 }
 
-.left h2 {
-    margin-bottom: 10px;
-    color: #333;
+h2 {
+    margin-bottom: 12px;
 }
 
-.skill {
-    background: #4e54c8;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 20px;
+h2::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background: #8f94fb;
+    display: block;
+    margin-top: 6px;
+}
+
+.center h2::after {
+    margin: 6px auto 0;
+}
+
+.right span {
     display: inline-block;
-    margin: 5px 5px 10px 0;
+    background: linear-gradient(120deg, #4e54c8, #8f94fb);
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 6px 6px 0 0;
     font-size: 14px;
+    transition: transform 0.3s ease;
 }
 
-/* Right section */
-.right {
-    width: 70%;
-    padding: 20px;
+.right span:hover {
+    transform: translateY(-4px);
 }
 
-.right h2 {
-    border-bottom: 2px solid #4e54c8;
-    margin-bottom: 10px;
+
+.bottom h3 {
+    margin-top: 10px;
+    color: #8f94fb;
 }
 
-.right p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    color: #333;
+
+@media (max-width: 768px) {
+    .resume {
+        grid-template-areas:
+            "top"
+            "left"
+            "right"
+            "center"
+            "bottom";
+    }
 }
