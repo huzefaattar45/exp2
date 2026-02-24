@@ -54,9 +54,6 @@ body {
 
 .top h1 {
     font-size: 42px;
-    background: linear-gradient(to right, #8f94fb, #4e54c8);
-    -webkit-background-clip: text;
-    color: transparent;
 }
 
 .top p {
@@ -112,3 +109,4 @@ h2::after {
             "bottom";
     }
 }
+
